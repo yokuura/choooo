@@ -1,0 +1,42 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+vector<int> increase_vector_elements(const vector<int>& vector, int n) {
+    vector<int> result;
+    result.reserve(vector.size());
+    for(int elem : vector) {
+        result.push_back(elem + n);
+    }
+    return result;
+}
+void test_increase_vector_elements() {
+    vector<int> vec1 = {1, 2, 3};
+    vector<int> result1 = increase_vector_elements(vec1, 2);
+    vector<int> expected1 = {3, 4, 5};
+    if (result1 == expected1) {
+        cout << "Test 1 завершён" << endl;
+    } else {
+        cout << "Test 1 провален" << endl;
+    }
+
+    vector<int> vec2 = {-1, -2, -3};
+    vector<int> result2 = increase_vector_elements(vec2, 3);
+    vector<int> expected2 = {2, 1, 0};
+    if (result2 == expected2) {
+        cout << "Test 2 завершён" << endl;
+    } else {
+        cout << "Test 2 провален" << endl;
+    }
+    vector<int> vec3 = {0, 0, 0};
+    vector<int> result3 = increase_vector_elements(vec3, 0);
+    vector<int> expected3 = {0, 0, 0};
+    if (result3 == expected3) {
+        cout << "Test 3 завершён" << endl;
+    } else {
+        cout << "Test 3 провален" << endl;
+    }
+}
+int main() {
+    test_increase_vector_elements();
+    return 0;
+}
